@@ -1,10 +1,5 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI-deneme
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: ["main"]
   pull_request:
@@ -13,19 +8,17 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
+  install_dependencies:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: install testing
         run: pip install pytest
-      - name: testing
-        run: pytest test_sample.py
-  actual_program:
+      - name: install pandas
+        run: pip install pandas
+  tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: actual program is running
-        run: python some_code.py
+      - name: testing
+        run: pytest test_sample.py
