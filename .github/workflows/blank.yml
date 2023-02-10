@@ -14,10 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: install dependencies
-        run: pip install pytest
+        run: |
+          pip install pytest
           pip install pandas
   tests:
     runs-on: ubuntu-latest
     steps:
       - name: testing
-        run: python -m pytest test/
+        run: pytest test/
