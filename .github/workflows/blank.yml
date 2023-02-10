@@ -20,4 +20,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: testing
-        run: pytest test/
+        run: python -m pytest test/
